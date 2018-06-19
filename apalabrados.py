@@ -107,5 +107,6 @@ def main():
 
 # Llamamos al main cuando se invoca el archivo como un programa
 if __name__ == '__main__':
+	os.system("cls")
 	print ("Game Start: "+ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 	main()

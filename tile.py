@@ -1,7 +1,7 @@
 import pygame
 
 class Tile(pygame.sprite.Sprite):
-	SIZE = (40,40) # 40x40
+	SIZE = (WIDTH, HEIGHT) = (40,40) # 40x40
 
 	dic_colors = {'yellow': (255,239,25), 'white': (255,255,255), 'red': (255,0,0), 'green': (0,255,0), 
 	'blue': (0,0,255), 'orange': (239,127,26), 'purple': (163,73,164)}
@@ -12,16 +12,13 @@ class Tile(pygame.sprite.Sprite):
 		self.squareType = squareType
 		self.text = self.setText()
 		self.color = self.setColor()
-
+		self.font = font
 		self.image = pygame.Surface(Tile.SIZE).convert()
 		self.image.fill(self.color)
+		label = self.font.render(str(self.text), 0, self.dic_colors['white'])
+		coords = (Tile.WIDTH / 2. - (label.get_rect().width / 2.), Tile.HEIGHT / 2. - (label.get_rect().height / 2.))
+		self.image.blit(label,coords)
 		self.rect = self.image.get_rect(center=self.pos)
-
-		self.font = font
-		#self.image = self.font.render(str(self.text), 0, self.dic_colors['white'], self.color)
-		self.image = self.font.render(str(self.text), 0, self.dic_colors['white'])
-		#self.rect = self.image.get_rect(center=self.pos)
-
 		#self.value = 0
 		#self.quantity = 0
 
