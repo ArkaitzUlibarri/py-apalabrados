@@ -31,12 +31,6 @@ letters = {'A': [1,12], 'B': [3,2], 'C': [3,4], 'D': [2,5], 'E': [1,12], 'F': [4
 'N': [1,5], 'Ñ': [8,1], 'O':[1,9], 'P': [3,2], 'Q': [5,1], 'R': [1,5], 'S': [1,6], 'T': [1,4], 'U': [1,5], 'V': [4,1], 'X': [8,1], 'Y': [4,1], 'Z': [10,1], 
 '*': [0,2] } 
 
-class myRect(pygame.Rect):
-	""" Add type property """
-	def __init__(self, left, top, width, height, type):
-		pygame.Rect.__init__(self, left, top, width, height)
-		self.type = type
-
 def multiplyLetter(squareType,letterValue):
 	if(squareType == "DL"):
 		return 2 * letterValue
@@ -53,7 +47,7 @@ def multiplyWord(squareType,wordValue):
 	else:
 		return wordValue
 
-def aplicarBonus(wordValue):
+def applyBonus(wordValue):
 	return wordValue + BONUS
 
 def mapeoType(number):
@@ -86,7 +80,6 @@ def main():
 	for rowIndex,rowValue in enumerate(mapr):
 		rowValue = rowValue[0].split(',')
 		for colIndex,colValue in enumerate(rowValue):
-			#print('(' + str(rowIndex) + ',' + str(colIndex) + ') :' + str(colValue) )
 			squareType = mapeoType(int(colValue))
 			point = (MEDIUM + int(rowIndex) * SQUARE_SIZE,MEDIUM + int(colIndex) * SQUARE_SIZE)
 			newTile = Tile(squareType,font,point)
@@ -110,3 +103,4 @@ if __name__ == '__main__':
 	os.system("cls")
 	print ("Game Start: "+ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 	main()
+	print ("Game End: "+ datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))

@@ -1,6 +1,6 @@
 appname: "Apalabrados"
 bonus: 40
 font:
-  size: 18
-  type: "Calibri"
+  size: 20
+  type: "Arial"
   bold: true

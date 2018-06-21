@@ -4,7 +4,7 @@ class Tile(pygame.sprite.Sprite):
 	SIZE = (WIDTH, HEIGHT) = (40,40) # 40x40
 
 	dic_colors = {'yellow': (255,239,25), 'white': (255,255,255), 'red': (255,0,0), 'green': (0,255,0), 
-	'blue': (0,0,255), 'orange': (239,127,26), 'purple': (163,73,164)}
+	'blue': (0,0,255), 'orange': (239,127,26), 'black': (0,0,0)}
 
 	def __init__(self,squareType,font,pos=(0,0)):
 		pygame.sprite.Sprite.__init__(self)
@@ -22,9 +22,6 @@ class Tile(pygame.sprite.Sprite):
 		#self.value = 0
 		#self.quantity = 0
 
-	def show(self):
-		print(self.pos)
-
 	def setColor(self):
 		if(self.squareType == "Normal"):
 			return self.dic_colors['white']
@@ -37,7 +34,7 @@ class Tile(pygame.sprite.Sprite):
 		elif(self.squareType == "TP"):
 			 return self.dic_colors['red']  
 		elif(self.squareType == "Start"):
-			return self.dic_colors['purple']   
+			return self.dic_colors['black']   
 		elif(self.squareType == "Letter"):
 			return self.dic_colors['yellow']
 
